@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const apiKey = process.env.IMDB_API_KEY;
 
+//interface for data coming from IMDB API
 interface Movie {
     id: string;
     rank: string;
@@ -16,15 +17,22 @@ interface Movie {
     imDbRatingCount: string;
 }
 
+type MovieList = Movie[];
+
 //Returns the list of all top250Movies from imdb API
 
 export const getMovies = async () => {
     try {
 
         const response = await fetch(`https://imdb-api.com/API/Top250Movies/${apiKey}`);
-        const {items} = (await response.json() as { items: Movie[], errorMessage: string });
+        const {items} = (await response.json() as { items: MovieList, errorMessage: string });
         return items;
     } catch (error) {
         throw new Error("Error while accessing data from IMDB API " + error.message);
     }
 }
+
+
+// export const getRandomMovie = () => {
+//
+// }
