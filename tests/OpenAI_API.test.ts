@@ -1,4 +1,4 @@
-import {runCompletion} from "../lib/OpenAI_API/openAI.api.connection";
+import {runCompletion} from "../utils/openAI.api.connection";
 
 test("OpenAI_API_Connection_Test", async () => {
     //runCompletion() should not throw
