@@ -3,6 +3,7 @@ import express from "express";
 import "express-async-errors";
 import cors from "cors";
 import dotenv from "dotenv";
+import {handleError} from "./utils/error";
 
 dotenv.config()
 
@@ -15,9 +16,16 @@ app.use(cors({
 }));
 
 app.get("/", (req, res) => {
+    throw new Error("xdd");
     res.json("works perfectly");
+
 });
 
+
+app.use(handleError)
+
+
 app.listen(3001, "localhost", () => console.log("App listening on http://localhost:3000"));
+
 
 
