@@ -3,5 +3,5 @@ import {CheckMoviePropertiesMaxLength} from "../utils/checkMoviePropertiesMaxLen
 test("check max length of all properties test", async () => {
     //CheckMoviePropertiesMaxLength should not throw
     expect(async () => await CheckMoviePropertiesMaxLength()).not.toThrow();
-    // console.log(await CheckMoviePropertiesMaxLength());
+    console.log(await CheckMoviePropertiesMaxLength());
 })
