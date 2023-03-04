@@ -1,4 +1,5 @@
-import {getMovies} from "./imdb.api.connection";
+//THIS is the devtool
+import {getMovies} from "../utils/imdb.api.connection";
 import {findMax} from "./findMax";
 
 //Names of all property of data from imDb API
