@@ -38,8 +38,8 @@ export const getRandomMovie = async (): Promise<Movie> => {
     try {
         //get ids of already done reviews
         const ids = await ReviewRecord.getAllIds();
-        //get all the movies from api and filters out those that have already been reviewed
-        const allMoviesNotDoneReview = (await getMovies()).filter(movie => !ids.includes(movie.id));
+        //get all the movies from api and filters out those that have already been reviewed, and that was released before 2022
+        const allMoviesNotDoneReview = (await getMovies()).filter(movie => !ids.includes(movie.id)).filter(movie => Number(movie.year) <= 2021);
         //draws one of the filtered
         return allMoviesNotDoneReview[Math.floor(Math.random() * allMoviesNotDoneReview.length)];
     } catch (err) {
