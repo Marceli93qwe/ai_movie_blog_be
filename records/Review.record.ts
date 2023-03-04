@@ -40,6 +40,9 @@ export class ReviewRecord implements Review_Record {
             const [oneReview] = await pool.execute("SELECT * FROM `reviews` WHERE `id`=:id", {
                 id,
             });
+            //if not found
+            if ((oneReview as []).length === 0) return null;
+            //if found
             return oneReview;
         } catch (err) {
             throw new Error("Error occurred in getOne() " + err.message);
