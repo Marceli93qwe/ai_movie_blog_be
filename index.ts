@@ -4,6 +4,7 @@ import "express-async-errors";
 import cors from "cors";
 import dotenv from "dotenv";
 import {handleError} from "./utils/error";
+import {addReviewHandler} from "./lib/addReviewHandler";
 
 dotenv.config()
 
@@ -17,14 +18,16 @@ app.use(cors({
 
 app.get("/", (req, res) => {
     throw new Error("xdd");
-    res.json("works perfectly");
+    // res.json("works perfectly");
 
 });
 
 
 app.use(handleError)
 
-
+//IT SHOULD add a new review every 24 hours
+// setInterval(addReviewHandler, 86 400 000);
+addReviewHandler()
 app.listen(3001, "localhost", () => console.log("App listening on http://localhost:3000"));
 
 
