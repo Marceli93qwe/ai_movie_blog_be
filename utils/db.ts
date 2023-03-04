@@ -1,10 +1,16 @@
-import {createPool} from "mysql2/promise";
+import {createPool, Pool} from "mysql2/promise";
 
+let pool: Pool;
 
-export const pool = createPool({
-    host: "localhost",
-    database: "ai_movie_blog",
-    user: "root",
-    namedPlaceholders: true,
-    decimalNumbers: true,
-});
+try {
+    pool = createPool({
+        host: "localhost",
+        database: "ai_movie_blog",
+        user: "root",
+        namedPlaceholders: true,
+        decimalNumbers: true,
+    });
+} catch (err) {
+    throw new Error("Error trying to connect to database");
+}
+export {pool};
