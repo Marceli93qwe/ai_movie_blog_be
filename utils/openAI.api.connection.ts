@@ -1,4 +1,3 @@
-// const {Configuration, OpenAIApi} = require("openai");
 import {Configuration, OpenAIApi} from "openai";
 import dotenv from "dotenv";
 
@@ -9,12 +8,14 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-//@TODO update prompt
-export async function runCompletion(/*prompt: string*/): Promise<string> {
+
+//runCompletion is the function that we send request, it gives us back an answer
+export async function runCompletion(prompt: string): Promise<string> {
     try {
         const completion = await openai.createCompletion({
+            max_tokens: 400, //it influences the max length of the generated answer
             model: "text-davinci-003",
-            prompt: "Do you like 'Frozen' movie?",
+            prompt: `${prompt}`,
         });
         return completion.data.choices[0].text
     } catch (err) {
