@@ -1,7 +1,7 @@
 {
   "name": "ai_movie_blog_be",
-  "version": "0.2.0",
-  "description": "Working imDb and OpenAI API Connection, basic utils added",
+  "version": "0.3.0",
+  "description": "Complete review feature working, handles basic routing",
   "main": "index.js",
   "scripts": {
     "test": "jest",
