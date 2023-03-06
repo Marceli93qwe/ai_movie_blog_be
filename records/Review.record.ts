@@ -1,4 +1,4 @@
-import {Review_Record} from "../types/ReviewRecord.types";
+import {Review_Record} from "../types/review/ReviewRecord.types";
 import {pool} from "../utils/db";
 
 export class ReviewRecord implements Review_Record {
