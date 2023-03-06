@@ -24,7 +24,7 @@ app.use(handleError)
 //IT SHOULD add a new review every 24 hours
 setInterval(addReviewHandler, 86400000);
 // addReviewHandler()
-app.listen(3001, "localhost", () => console.log("App listening on http://localhost:3000"));
+app.listen(3001, "localhost", () => console.log("App listening on http://localhost:3001"));
 
 
 
